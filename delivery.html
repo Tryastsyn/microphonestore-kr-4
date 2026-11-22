@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ru" class="screen-document">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Способы доставки по России, оплата и условия возврата учебного интернет-магазина MicrophoneStore.">
+    <meta name="theme-color" content="#202940">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Доставка и оплата — MicrophoneStore">
+    <meta property="og:description" content="Способы доставки по России, оплата и условия возврата учебного интернет-магазина MicrophoneStore.">
+    <title>Доставка и оплата — MicrophoneStore</title>
+    <link rel="icon" href="images/favicon.png?v=lucide" type="image/png">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body class="screen-page" id="top">
+    <a class="btn btn-primary position-absolute visually-hidden-focusable skip-link" href="#main">Перейти к содержанию</a>
+    <header class="site-header">
+        <div class="shop-announcement">
+            <a href="delivery.html#delivery"><i class="icon icon-truck" aria-hidden="true"></i>Бесплатная доставка по Москве от 3 000 ₽</a>
+        </div>
+        <nav class="navbar navbar-expand-lg shop-nav" aria-label="Основная навигация">
+            <div class="container">
+                <a class="shop-brand navbar-brand" href="index.html">
+                    <span class="shop-brand__mark"><i class="icon icon-soundwave" aria-hidden="true"></i></span>
+                    <span>MicrophoneStore</span>
+                </a>
+                <div class="navbar-collapse d-flex flex-wrap gap-2 pt-lg-0" id="shop-nav">
+                    <ul class="navbar-nav flex-row flex-wrap mx-lg-auto gap-1">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sales.html">Акции</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="delivery.html" aria-current="page">Доставка и оплата</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">О компании</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href="account.html">Кабинет</a></li>
+                    </ul>
+                    <button class="btn btn-primary flex-shrink-0" type="button" data-order>
+            <i class="icon icon-bag" aria-hidden="true"></i>Оставить заявку
+          </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container screen-layout" id="main" tabindex="-1">
+        <div class="screen-section">
+            <nav aria-label="Хлебные крошки">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Доставка и оплата</li>
+                </ol>
+            </nav>
+
+            <div class="row g-3 g-lg-4 align-items-stretch">
+                <div class="col-lg-7">
+                    <section class="page-intro promo-panel h-100 d-flex flex-column justify-content-center" aria-labelledby="page-title">
+                        <h1 id="page-title">Доставка и оплата</h1>
+                        <p>Получите микрофон курьером, в пункте выдачи или отправлением по России. Сравните сроки и рассчитайте стоимость для своего заказа.</p>
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <a class="btn btn-light" href="#delivery">Сравнить способы доставки</a>
+                            <a class="btn btn-outline-light" href="#payment">Посмотреть условия оплаты</a>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="col-lg-5">
+                    <form class="info-card" id="delivery-calculator" aria-labelledby="delivery-calculator-title" novalidate>
+                        <h2 class="h4" id="delivery-calculator-title">Калькулятор доставки</h2>
+                        <p>Введите стоимость товаров без доставки.</p>
+                        <div class="mb-3">
+                            <label class="form-label" for="delivery-amount">Сумма заказа, ₽</label>
+                            <input class="form-control" id="delivery-amount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Например, 2 500" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="delivery-method">Способ доставки</label>
+                            <select class="form-select" id="delivery-method">
+                <option value="courier">Курьер по Москве</option>
+                <option value="pickup">Пункт выдачи</option>
+                <option value="post">Почта России</option>
+                <option value="carrier">Транспортная компания</option>
+              </select>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Рассчитать</button>
+                        <output class="help-panel d-block p-3 mt-3" id="delivery-estimate" for="delivery-amount delivery-method" aria-live="polite">Здесь появятся стоимость доставки и срок.</output>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section class="screen-section" id="delivery" aria-labelledby="delivery-title">
+            <div class="section-heading">
+                <h2 id="delivery-title">Способы доставки</h2>
+                <a class="shop-link" href="#delivery-calculator">Рассчитать доставку</a>
+            </div>
+
+            <div class="table-responsive delivery-table" role="region" aria-labelledby="delivery-title" tabindex="0">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Способ</th>
+                            <th scope="col">Срок</th>
+                            <th scope="col">Стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Курьер по Москве</th>
+                            <td class="text-nowrap">1–2 дня</td>
+                            <td>300 ₽, от 3 000 ₽ бесплатно</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Пункт выдачи</th>
+                            <td class="text-nowrap">1–3 дня</td>
+                            <td>Бесплатно</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Почта России</th>
+                            <td class="text-nowrap">5–14 дней</td>
+                            <td>От 350 ₽</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Транспортная компания</th>
+                            <td class="text-nowrap">3–7 дней</td>
+                            <td>По тарифу перевозчика</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="help-panel mt-4">
+                <h3 class="h4 mb-3">От заявки до получения</h3>
+                <ol class="steps row row-cols-1 row-cols-md-3 g-3">
+                    <li><strong>Укажите город</strong>
+                        <p>Добавьте населённый пункт и удобный способ получения в комментарий к заявке.</p>
+                    </li>
+                    <li><strong>Согласуйте детали</strong>
+                        <p>Уточните адрес или пункт выдачи, срок и итоговую стоимость доставки.</p>
+                    </li>
+                    <li><strong>Проверьте заказ</strong>
+                        <p>При получении сверьте модель и комплектность, осмотрите упаковку.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="screen-section" id="payment" aria-labelledby="payment-title">
+            <h2 class="mb-3" id="payment-title">Способы оплаты</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-3 g-lg-4">
+                <div class="col">
+                    <article class="info-card">
+                        <span class="shop-icon"><i class="icon icon-credit-card" aria-hidden="true"></i></span>
+                        <h3>Картой онлайн</h3>
+                        <p>Оплата по ссылке после подтверждения заявки.</p>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="info-card">
+                        <span class="shop-icon"><i class="icon icon-qr-code" aria-hidden="true"></i></span>
+                        <h3>Через СБП</h3>
+                        <p>Оплата по QR-коду в приложении банка.</p>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="info-card">
+                        <span class="shop-icon"><i class="icon icon-cash-coin" aria-hidden="true"></i></span>
+                        <h3>При получении</h3>
+                        <p>Картой или наличными курьеру либо в пункте выдачи.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-3 g-lg-4 mt-2">
+                <div class="col">
+                    <div class="help-panel h-100">
+                        <h3>Перед оплатой</h3>
+                        <p class="mb-0">Дождитесь подтверждения заявки. Сверьте выбранную модель, цену, скидку и итоговую сумму с доставкой.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="help-panel h-100">
+                        <h3>После оплаты</h3>
+                        <p class="mb-0">Сохраните подтверждение платежа. Оно поможет уточнить детали заказа или оформить обращение по возврату.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-section" id="returns" aria-labelledby="returns-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="returns-title">Возврат и обмен</h2>
+                    <p>В течение 14 дней после получения товара при соблюдении условий возврата.</p>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-3 g-lg-4">
+                <div class="col">
+                    <article class="info-card">
+                        <span class="shop-icon"><i class="icon icon-box-seam" aria-hidden="true"></i></span>
+                        <h3>Подготовьте товар</h3>
+                        <p>Для возврата или обмена товар должен быть без следов использования. Сохраните упаковку.</p>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="info-card">
+                        <span class="shop-icon"><i class="icon icon-chat-dots" aria-hidden="true"></i></span>
+                        <h3>Напишите в магазин</h3>
+                        <p>Укажите модель, дату получения и ваши контакты. В сообщении уточните, нужен возврат или обмен.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="promo-panel mt-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+                <div>
+                    <h3 class="text-white">Куда передать товар</h3>
+                    <p class="mb-0">Согласуйте с магазином способ передачи товара и дальнейшие шаги.</p>
+                </div>
+                <a class="btn btn-light" href="contacts.html#feedback">Открыть контакты</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" id="contacts">
+        <div class="container">
+            <div class="row g-4 gx-lg-5">
+                <div class="col-lg-4">
+                    <a class="shop-brand" href="index.html">
+                        <span class="shop-brand__mark"><i class="icon icon-soundwave" aria-hidden="true"></i></span>
+                        <span>MicrophoneStore</span>
+                    </a>
+                    <p class="mt-3 mb-0">Микрофоны для подкастов, стримов и записи.</p>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <nav class="col-sm-6" aria-labelledby="footer-nav-title">
+                            <h2 id="footer-nav-title">Навигация</h2>
+                            <ul class="list-unstyled site-footer__links d-grid mb-0">
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="catalog.html">Каталог</a></li>
+                                <li><a href="sales.html">Акции</a></li>
+                                <li><a href="delivery.html" aria-current="page">Доставка и оплата</a></li>
+                                <li><a href="about.html">О компании</a></li>
+                                <li><a href="contacts.html">Контакты</a></li>
+                                <li><a href="index.html#choose">Подбор</a></li>
+                                <li><a href="favorites.html">Избранное</a></li>
+                                <li><a href="cart.html">Корзина</a></li>
+                                <li><a href="account.html">Личный кабинет</a></li>
+                            </ul>
+                        </nav>
+
+                        <section class="col-sm-6" aria-labelledby="footer-contact-title">
+                            <h2 id="footer-contact-title">Мы на связи</h2>
+                            <address class="mb-0">
+                <ul class="list-unstyled site-footer__contacts mb-0">
+                  <li>
+                    <i class="icon icon-geo-alt site-footer__contact-icon" aria-hidden="true"></i>
+                    <a href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D1%8F%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%2C%201">
+                      Москва, улица Большая Дмитровка, 1
+                    </a>
+                  </li>
+                  <li>
+                    <i class="icon icon-telephone site-footer__contact-icon" aria-hidden="true"></i>
+                    <a href="tel:+74950006842">+7 (495) 000-68-42</a>
+                  </li>
+                  <li>
+                    <i class="icon icon-clock site-footer__contact-icon" aria-hidden="true"></i>
+                    <span><span class="visually-hidden">Режим работы </span>09:00–21:00</span>
+                  </li>
+                  <li>
+                    <i class="icon icon-envelope site-footer__contact-icon" aria-hidden="true"></i>
+                    <a href="mailto:microphonestore.audio.6842@gmail.com">microphonestore.audio.6842@gmail.com</a>
+                  </li>
+                </ul>
+              </address>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer__fine">
+                <span>© 2026 MicrophoneStore</span>
+            </div>
+        </div>
+    </footer>
+    <a class="page-up" href="#top" id="page-up" aria-label="Вернуться к началу страницы">UP</a>
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title" aria-describedby="order-dialog-text">
+        <form class="modal-content" id="order-form" novalidate>
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title" id="order-dialog-title">Оформление заявки</h2>
+                    <p class="mb-0 mt-1" id="selected-product-summary" hidden></p>
+                </div>
+                <button class="btn-close" type="button" data-close-dialog aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p class="order-dialog__notice" id="order-dialog-text">Демо-форма. Используйте тестовые данные.</p>
+                <input type="hidden" id="selected-product" name="selected-product">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label class="form-label" for="order-name">Имя</label>
+                        <input class="form-control" id="order-name" name="name" autocomplete="given-name" minlength="2" required>
+                        <div class="invalid-feedback">Укажите имя из двух или более символов.</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label" for="order-email">Электронная почта</label>
+                        <input class="form-control" id="order-email" name="email" type="email" autocomplete="email" required>
+                        <div class="invalid-feedback">Укажите адрес электронной почты.</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label" for="order-phone">Телефон</label>
+                        <input class="form-control" id="order-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00" aria-describedby="order-phone-feedback" required>
+                        <div class="invalid-feedback" id="order-phone-feedback">Укажите номер телефона с кодом города или оператора.</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label" for="order-date">Удобная дата связи</label>
+                        <input class="form-control" id="order-date" name="date" type="date">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" for="order-topic">Тема заявки</label>
+                        <select class="form-select" id="order-topic" name="topic" required>
+              <option value="">Выберите тему</option>
+              <option value="product">Заказ товара</option>
+              <option value="consultation">Консультация</option>
+              <option value="delivery">Доставка</option>
+            </select>
+                        <div class="invalid-feedback">Выберите тему заявки.</div>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" for="order-comment">Комментарий <span class="fw-normal text-body-secondary">(по желанию)</span></label>
+                        <textarea class="form-control" id="order-comment" name="comment" rows="2" maxlength="500"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" id="order-agreement" name="agreement" type="checkbox" required>
+                            <label class="form-check-label" for="order-agreement">Подтверждаю, что использую тестовые данные</label>
+                            <div class="invalid-feedback">Подтвердите использование тестовых данных.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline-primary" type="button" id="close-order-dialog" data-close-dialog>Закрыть</button>
+                <button class="btn btn-primary" type="submit" disabled>Проверить заявку</button>
+            </div>
+        </form>
+    </dialog>
+    <div class="toast-container position-fixed end-0 p-3" aria-live="polite" aria-atomic="true">
+        <div class="toast" id="success-message" role="status" hidden>
+            <div class="d-flex align-items-center gap-2">
+                <div class="toast-body"><i class="icon icon-check-circle" aria-hidden="true"></i> Демо-заявка прошла проверку.</div>
+                <button class="btn-close ms-auto me-3" type="button" data-close-notice aria-label="Закрыть уведомление"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (() => {
+            const form = document.getElementById("delivery-calculator");
+            const amount = document.getElementById("delivery-amount");
+            const method = document.getElementById("delivery-method");
+            const result = document.getElementById("delivery-estimate");
+            const rubles = new Intl.NumberFormat("ru-RU", {
+                style: "currency",
+                currency: "RUB",
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 0
+            });
+
+            form.addEventListener("input", () => {
+                result.textContent = "Нажмите «Рассчитать», чтобы обновить стоимость и срок.";
+            });
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                if (!form.reportValidity()) return;
+
+                const price = amount.valueAsNumber;
+                if (method.value === "courier") {
+                    const delivery = price >= 3000 ? 0 : 300;
+                    const cost = delivery === 0 ? "бесплатно" : rubles.format(delivery);
+                    result.textContent = "Курьер по Москве — " + cost + ". Срок 1–2 дня. Итого " + rubles.format(price + delivery) + ".";
+                } else if (method.value === "pickup") {
+                    result.textContent = "Пункт выдачи — бесплатно. Срок 1–3 дня. Итого " + rubles.format(price) + ".";
+                } else if (method.value === "post") {
+                    result.textContent = "Почта России — от 350 ₽. Срок 5–14 дней. Итого от " + rubles.format(price + 350) + ".";
+                } else {
+                    result.textContent = "Транспортная компания — по тарифу перевозчика. Срок 3–7 дней. Стоимость уточняется при подтверждении.";
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

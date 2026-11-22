@@ -1,0 +1,293 @@
+.home-intro {
+    padding-block: clamp(1rem, 3vh, 1.85rem);
+}
+
+.home-intro .hero {
+    flex: 1 0 auto;
+}
+
+.home-intro .shop-perks {
+    flex-shrink: 0;
+}
+
+.home-products .section-heading {
+    align-items: center;
+}
+
+.home-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.home-stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    padding: .85rem 1rem;
+    color: var(--muted);
+    font-size: .9375rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-stat+.home-stat {
+    border-inline-start: 1px solid var(--line);
+}
+
+.home-stat__number {
+    color: var(--accent);
+    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+}
+
+.home-guide h2 {
+    margin-bottom: 1rem;
+}
+
+.home-guide__tabs {
+    --nav-link-color: var(--accent);
+    --nav-link-hover-color: var(--accent-hover);
+    --nav-pills-border-radius: .6rem;
+    gap: .5rem;
+    margin-bottom: .85rem;
+}
+
+.home-guide__tabs .nav-link {
+    min-height: 2.75rem;
+    padding: .5rem .85rem;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    font-size: .9rem;
+    font-weight: 750;
+}
+
+.home-guide__tabs .nav-link.active {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+.guide-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    min-height: clamp(14rem, 31vh, 20rem);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--panel-radius);
+    background: var(--tint);
+}
+
+.guide-card__body {
+    align-self: center;
+    padding: clamp(1.15rem, 4.4vw, 3.1rem);
+    padding-inline-end: 0;
+}
+
+.guide-card h3 {
+    font-size: clamp(1.35rem, 3.4vw, 2.55rem);
+}
+
+.guide-card p {
+    max-width: 29rem;
+}
+
+.guide-card__media {
+    position: relative;
+    min-width: 0;
+    margin: .75rem;
+    background: radial-gradient(ellipse at center, #fff8fb 0%, transparent 70%);
+}
+
+.guide-card__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.home-sale {
+    margin-top: clamp(.85rem, 2.3vh, 1.55rem);
+    padding: clamp(1.05rem, 3.3vw, 2.15rem);
+}
+
+.home-sale h3 {
+    color: #fff;
+    font-size: clamp(1.25rem, 2.7vw, 1.95rem);
+}
+
+.home-reviews__note {
+    font-size: .875rem;
+}
+
+.home-reviews .review {
+    display: flex;
+    flex-direction: column;
+    min-height: 11rem;
+}
+
+.home-reviews .review__author {
+    margin-top: auto;
+}
+
+.home-reviews__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin-top: .65rem;
+}
+
+.home-footer {
+    padding-block: clamp(1.2rem, 3.3vh, 2.6rem) .9rem;
+    background: linear-gradient(110deg, #33202a, #181116 78%);
+}
+
+.home-footer__top,
+.home-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem 1.5rem;
+}
+
+.home-footer .home-footer__lead {
+    margin: .65rem 0 .15rem;
+    color: #fff;
+    font-weight: 800;
+}
+
+.home-footer__description {
+    margin: 0;
+}
+
+.home-footer__bottom {
+    margin-top: clamp(.95rem, 2.4vh, 1.55rem);
+    padding: .8rem 3.5rem 0 0;
+    border-top: 1px solid #64424f;
+    color: #e3c6d1;
+    font-size: .875rem;
+}
+
+.home-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem 1rem;
+}
+
+.home-footer__links a {
+    color: #f9edf3;
+    text-decoration: none;
+    text-underline-offset: .22em;
+}
+
+.home-footer__links a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1320px) {
+    .home-footer__bottom {
+        padding-inline-end: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .home-intro .hero__photo {
+        flex: 1 0 auto;
+        height: clamp(9rem, 25vh, 14rem);
+    }
+    .home-intro .shop-perks {
+        margin-top: .8rem;
+        padding-inline: .7rem;
+    }
+    .home-intro .shop-perks li+li {
+        border-top: 0;
+        border-inline-start: 1px solid var(--line);
+    }
+    .home-intro .shop-perks a {
+        flex-direction: column;
+        gap: .3rem;
+        padding: .65rem 0;
+        text-align: center;
+    }
+    .home-intro .shop-perks strong {
+        font-size: .875rem;
+        line-height: 1.25;
+    }
+    .home-intro .shop-perks small {
+        display: none;
+    }
+    .home-intro .shop-icon {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.05rem;
+    }
+    .home-products .product-card__media {
+        aspect-ratio: 1.55;
+    }
+    .home-products .product-card .card-body {
+        padding: .75rem;
+    }
+    .home-products .product-card__description {
+        margin-bottom: .55rem;
+        line-height: 1.35;
+    }
+    .home-stat {
+        flex-direction: column;
+        gap: .25rem;
+        padding: .7rem .4rem;
+        font-size: .875rem;
+        text-align: center;
+    }
+    .guide-card {
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    }
+    .guide-card__media {
+        margin: .5rem .5rem .5rem 0;
+    }
+    .guide-card p,
+    .home-sale p {
+        font-size: .9375rem;
+    }
+    .home-sale .promo-panel__icon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.35rem;
+    }
+    .home-help .faq__question {
+        padding: .68rem .85rem;
+    }
+    .home-help .faq__answer {
+        padding-inline: .85rem;
+    }
+    .home-reviews .review {
+        min-height: 10rem;
+        padding: .9rem;
+    }
+    .home-footer__description {
+        font-size: .9375rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .home-products .products-grid {
+        --gutter-x: .65rem;
+        --gutter-y: .65rem;
+    }
+    .home-guide__tabs {
+        gap: .35rem;
+    }
+    .home-guide__tabs .nav-link {
+        padding-inline: .6rem;
+    }
+    .home-footer__links {
+        gap: .3rem .8rem;
+    }
+}
