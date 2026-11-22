@@ -1,0 +1,11 @@
+{
+    "product-1": { "name": "Микрофон с RGB-подсветкой", "price": 1000, "discount": 0, "inStock": true },
+    "product-2": { "name": "Настольный RGB-микрофон", "price": 1500, "discount": 0, "inStock": true },
+    "product-3": { "name": "Микрофон на поворотном креплении", "price": 2000, "discount": 0, "inStock": true },
+    "product-4": { "name": "FIFINE K669B", "price": 2500, "discount": 0, "inStock": true },
+    "product-5": { "name": "FIFINE AmpliGame AM8", "price": 3000, "discount": 15, "inStock": true },
+    "product-6": { "name": "FIFINE K688", "price": 3500, "discount": 0, "inStock": true },
+    "product-7": { "name": "FIFINE AmpliGame A6V", "price": 4000, "discount": 20, "inStock": true },
+    "product-8": { "name": "FIFINE AmpliGame A8", "price": 4500, "discount": 0, "inStock": true },
+    "product-9": { "name": "FIFINE K690", "price": 5000, "discount": 10, "inStock": true }
+}
