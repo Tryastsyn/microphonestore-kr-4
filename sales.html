@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
+    <script src="js/shop.js" defer></script>
 </head>
 
-<body class="screen-page" id="top">
+<body class="storefront screen-page" id="top">
     <a class="btn btn-primary position-absolute visually-hidden-focusable skip-link" href="#main">Перейти к содержанию</a>
     <header class="site-header">
         <div class="shop-announcement">
@@ -46,6 +47,33 @@
             </div>
         </nav>
     </header>
+    <nav class="mobile-nav" aria-label="Быстрый доступ">
+        <a class="mobile-nav__link" href="index.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-house"></i>
+      </span>
+            <span>Главная</span>
+        </a>
+        <a class="mobile-nav__link" href="catalog.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-layout-grid"></i>
+      </span>
+            <span>Каталог</span>
+        </a>
+        <a class="mobile-nav__link" href="favorites.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-heart"></i>
+      </span>
+            <span>Избранное</span>
+        </a>
+        <a class="mobile-nav__link" href="cart.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-shopping-cart"></i>
+        <span class="mobile-nav__count" data-cart-count hidden></span>
+            </span>
+            <span>Корзина</span>
+        </a>
+    </nav>
     <main class="container screen-layout" id="main" tabindex="-1">
         <div class="screen-section sales-intro">
             <nav aria-label="Хлебные крошки">

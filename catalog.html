@@ -17,7 +17,7 @@
     <script src="js/shop.js" defer></script>
 </head>
 
-<body id="top">
+<body class="storefront" id="top">
     <a class="btn btn-primary position-absolute visually-hidden-focusable skip-link" href="#main">Перейти к содержанию</a>
     <header class="site-header">
         <div class="shop-announcement">
@@ -47,6 +47,33 @@
             </div>
         </nav>
     </header>
+    <nav class="mobile-nav" aria-label="Быстрый доступ">
+        <a class="mobile-nav__link" href="index.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-house"></i>
+      </span>
+            <span>Главная</span>
+        </a>
+        <a class="mobile-nav__link" href="catalog.html" aria-current="page">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-layout-grid"></i>
+      </span>
+            <span>Каталог</span>
+        </a>
+        <a class="mobile-nav__link" href="favorites.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-heart"></i>
+      </span>
+            <span>Избранное</span>
+        </a>
+        <a class="mobile-nav__link" href="cart.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-shopping-cart"></i>
+        <span class="mobile-nav__count" data-cart-count hidden></span>
+            </span>
+            <span>Корзина</span>
+        </a>
+    </nav>
     <main class="container shop-content" id="main" tabindex="-1">
         <nav aria-label="Хлебные крошки">
             <ol class="breadcrumb">
@@ -57,7 +84,7 @@
         <section class="page-intro" aria-labelledby="page-title">
             <h1 id="page-title">Каталог микрофонов</h1>
             <p>Выбирайте модель по цене, названию или действующей скидке.</p>
-            <div class="d-flex flex-wrap gap-2 mt-3">
+            <div class="catalog-shortcuts mt-3">
                 <a class="btn btn-outline-primary" href="favorites.html">Избранное</a>
                 <a class="btn btn-outline-primary" href="cart.html">Корзина</a>
             </div>
@@ -65,7 +92,7 @@
         </section>
         <section class="shop-section shop-section--compact row g-3 g-lg-4" aria-label="Товары и фильтры">
             <aside class="col-lg-3">
-                <button class="btn btn-outline-primary w-100 d-lg-none" type="button" data-disclosure aria-expanded="false" aria-controls="filter-panel">
+                <button class="btn btn-outline-primary w-100 d-lg-none catalog-filter-toggle" type="button" data-disclosure aria-expanded="false" aria-controls="filter-panel">
           <i class="icon icon-sliders" aria-hidden="true"></i>Фильтры
         </button>
                 <div class="collapse d-lg-block catalog-sidebar mt-2 mt-lg-0" id="filter-panel">

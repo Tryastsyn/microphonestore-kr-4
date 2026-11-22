@@ -277,6 +277,9 @@
 }
 
 @media (max-width: 420px) {
+    .hero__actions .btn {
+        flex: 1 1 100%;
+    }
     .home-products .products-grid {
         --gutter-x: .65rem;
         --gutter-y: .65rem;

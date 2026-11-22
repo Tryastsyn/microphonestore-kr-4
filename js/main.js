@@ -10,6 +10,7 @@ function setupCatalog() {
     const min = form.elements.namedItem("min");
     const max = form.elements.namedItem("max");
     const sort = form.elements.namedItem("sort");
+    const filterToggle = document.querySelector('[aria-controls="filter-panel"]');
     const products = [...grid.children].map((item) => ({
         item,
         price: Number(item.dataset.price),
@@ -56,8 +57,16 @@ function setupCatalog() {
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        if (checkPriceRange()) updateProducts();
-        else form.reportValidity();
+        if (!checkPriceRange()) {
+            form.reportValidity();
+            return;
+        }
+        updateProducts();
+        if (filterToggle && filterToggle.getClientRects().length && filterToggle.getAttribute("aria-expanded") === "true") {
+            const focusInFilters = form.contains(document.activeElement);
+            filterToggle.click();
+            if (focusInFilters) filterToggle.focus();
+        }
     });
     for (const input of[min, max]) input.addEventListener("input", checkPriceRange);
     for (const input of form.querySelectorAll("[name='category']")) input.addEventListener("change", updateIfValid);

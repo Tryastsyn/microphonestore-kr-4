@@ -3,6 +3,8 @@
     const list = document.querySelector("[data-shop-list]");
     const empty = document.querySelector("[data-shop-empty]");
     const total = document.getElementById("cart-total");
+    const cartBadge = document.querySelector("[data-cart-count]");
+    const cartLink = cartBadge && cartBadge.closest("a");
     const favoriteButtons = new Map();
     const price = new Intl.NumberFormat("ru-RU", { style: "currency", currency: "RUB", maximumFractionDigits: 0 });
     const key = name => "shopproject." + name;
@@ -20,12 +22,13 @@
     function save(name, value, message) {
         try {
             localStorage.setItem(key(name), JSON.stringify(value));
-            status.textContent = message;
-            return true;
         } catch {
-            status.textContent = "Не удалось сохранить данные в этом браузере.";
+            if (status) status.textContent = "Не удалось сохранить данные в этом браузере.";
             return false;
         }
+        if (status) status.textContent = message;
+        if (name === "cart") updateCart(value);
+        return true;
     }
 
     function items(name) {
@@ -96,8 +99,14 @@
         card.querySelector(".card-body").append(actions);
     }
 
-    function updateTotal(cart) {
+    function updateCart(cart) {
         if (total) total.textContent = price.format(cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
+        if (cartLink) {
+            const quantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartBadge.hidden = quantity === 0;
+            cartBadge.textContent = quantity > 99 ? "99+" : String(quantity);
+            cartLink.setAttribute("aria-label", quantity ? "Корзина, количество товаров: " + quantity : "Корзина");
+        }
     }
 
     function savedProductLink(item, inCart) {
@@ -142,33 +151,52 @@
             const actions = node("div", "saved-product__actions");
 
             if (inCart) {
-                const label = node("label", "saved-product__quantity");
+                const controls = node("div", "saved-product__quantity");
+                const label = node("label", "", "Количество");
+                const stepper = node("div", "saved-product__stepper");
                 const quantity = node("input", "form-control");
                 const subtotal = node("p", "saved-product__subtotal");
                 const lineTotal = node("strong", "", price.format(item.price * item.quantity));
+                const decrease = button("−", () => changeQuantity(value => value - 1));
+                const increase = button("+", () => changeQuantity(value => value + 1));
+                decrease.classList.add("saved-product__step");
+                increase.classList.add("saved-product__step");
+                decrease.setAttribute("aria-label", "Уменьшить количество — " + item.name);
+                increase.setAttribute("aria-label", "Увеличить количество — " + item.name);
+                quantity.id = "quantity-" + item.id;
                 quantity.type = "number";
+                quantity.inputMode = "numeric";
                 quantity.min = "1";
                 quantity.step = "1";
-                quantity.value = item.quantity;
                 quantity.setAttribute("aria-label", "Количество — " + item.name);
-                quantity.addEventListener("change", () => {
-                    const value = quantity.valueAsNumber;
+                label.htmlFor = quantity.id;
+
+                function syncQuantityControls() {
+                    quantity.value = item.quantity;
+                    decrease.disabled = item.quantity <= 1;
+                    increase.disabled = item.quantity >= Number.MAX_SAFE_INTEGER;
+                }
+
+                function changeQuantity(getValue) {
                     const cart = items("cart");
                     const entry = cart.find(product => product.id === item.id);
-                    if (!entry) return renderList();
-                    if (Number.isSafeInteger(value) && value > 0) {
+                    if (!entry) return refresh();
+                    const value = getValue(entry.quantity);
+                    item.quantity = entry.quantity;
+                    if (Number.isSafeInteger(value) && value > 0 && value !== entry.quantity) {
                         entry.quantity = value;
-                        if (save("cart", cart, "Количество обновлено.")) {
-                            item.quantity = value;
-                            lineTotal.textContent = price.format(item.price * value);
-                            updateTotal(cart);
-                        }
+                        if (save("cart", cart, "Количество обновлено.")) item.quantity = value;
                     }
-                    quantity.value = item.quantity;
-                });
-                label.append(node("span", "", "Количество"), quantity);
+                    lineTotal.textContent = price.format(item.price * item.quantity);
+                    syncQuantityControls();
+                }
+
+                quantity.addEventListener("change", () => changeQuantity(() => quantity.valueAsNumber));
+                syncQuantityControls();
+                stepper.append(decrease, quantity, increase);
+                controls.append(label, stepper);
                 subtotal.append(node("span", "", "Сумма"), lineTotal);
-                actions.append(label, subtotal);
+                actions.append(controls, subtotal);
             } else {
                 actions.append(button("В корзину", () => addToCart(item), "btn-primary"));
             }
@@ -183,7 +211,6 @@
             row.append(savedProductLink(item, inCart), actions);
             list.append(row);
         }
-        if (inCart) updateTotal(entries);
     }
 
     const profile = document.getElementById("profile-form");
@@ -203,6 +230,7 @@
     function refresh() {
         updateFavoriteButtons();
         renderList();
+        updateCart(items("cart"));
     }
 
     window.addEventListener("pageshow", refresh);

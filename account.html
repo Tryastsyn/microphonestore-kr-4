@@ -11,20 +11,47 @@
     <script src="js/shop.js" defer></script>
 </head>
 
-<body id="top">
+<body class="storefront" id="top">
     <header class="site-header">
         <nav class="navbar shop-nav" aria-label="Магазин">
             <div class="container gap-2">
                 <a class="shop-brand navbar-brand" href="index.html">MicrophoneStore</a>
                 <ul class="nav flex-wrap gap-1">
-                    <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="favorites.html">Избранное</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Корзина</a></li>
+                    <li class="nav-item shop-nav__desktop-link"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                    <li class="nav-item shop-nav__desktop-link"><a class="nav-link" href="favorites.html">Избранное</a></li>
+                    <li class="nav-item shop-nav__desktop-link"><a class="nav-link" href="cart.html">Корзина</a></li>
                     <li class="nav-item"><a class="nav-link active" href="account.html" aria-current="page">Личный кабинет</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+    <nav class="mobile-nav" aria-label="Быстрый доступ">
+        <a class="mobile-nav__link" href="index.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-house"></i>
+      </span>
+            <span>Главная</span>
+        </a>
+        <a class="mobile-nav__link" href="catalog.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-layout-grid"></i>
+      </span>
+            <span>Каталог</span>
+        </a>
+        <a class="mobile-nav__link" href="favorites.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-heart"></i>
+      </span>
+            <span>Избранное</span>
+        </a>
+        <a class="mobile-nav__link" href="cart.html">
+            <span class="mobile-nav__icon" aria-hidden="true">
+        <i class="icon icon-shopping-cart"></i>
+        <span class="mobile-nav__count" data-cart-count hidden></span>
+            </span>
+            <span>Корзина</span>
+        </a>
+    </nav>
     <main class="container shop-content">
         <section class="page-intro mb-4">
             <h1>Личный кабинет</h1>
