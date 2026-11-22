@@ -1,6 +1,6 @@
 # Учебный frontend-проект
 
-## Версия на Bootstrap
+
 
 ShopProject состоит из девяти статических страниц. После распаковки откройте `ShopProject/index.html`.
 
